@@ -1,6 +1,9 @@
+  <div dir="rtl" style="height: 100vh; display: flex; flex-direction: column;">
+  <app-header></app-header>
  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <input name="username" [(ngModel)]="username" required placeholder="Username" />
       <input name="password" [(ngModel)]="password" required type="password" placeholder="Password" />
       <button type="submit">Login</button>
       <div *ngIf="error" style="color:red">{{ error }}</div>
     </form>
+    </div>

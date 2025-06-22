@@ -4,7 +4,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../core/auth.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,11 +20,12 @@ import { AuthService } from '../../core/auth.service';
 })
 export class HeaderComponent {
   auth = inject(AuthService);
+  private router = inject(Router);
+
   get isLoggedIn() { return this.auth.isLoggedIn(); }
 
   onLogout() {
     this.auth.logout();
-    // Optionally, redirect to login or homepage:
-    // window.location.href = '/login';
+   this.router.navigate(['/login']);
   }
 }
