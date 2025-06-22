@@ -6,7 +6,7 @@ import { InvoiceQueryDto } from './models/invoice-query.dto';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private readonly baseUrl = 'http://localhost:3006/api/invoices';
+  private readonly baseUrl = 'http://localhost:3003/api/invoices';
 
   constructor(private http: HttpClient) {}
 

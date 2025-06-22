@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, afterRender } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,8 +24,16 @@ export class HeaderComponent {
 
   get isLoggedIn() { return this.auth.isLoggedIn(); }
 
+  onAfterRender()
+  {
+    if(!this.auth.isLoggedIn())
+      {
+        this.router.navigate(['/login']);
+      }
+  }
+
   onLogout() {
     this.auth.logout();
-   this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 }

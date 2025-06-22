@@ -10,26 +10,30 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<void> {
-    return this.http.post<{ token: string }>('http://localhost:3000/api/login', { username, password })
+    return this.http.post<{ access_token: string }>('http://localhost:3000/api/login', { username, password })
       .pipe(
         tap(res => {
-          this.token = res.token;
-          sessionStorage.setItem(this.tokenKey, res.token);
+          this.token = res.access_token;
+          console.log(res.access_token)
+          localStorage.setItem('token', res.access_token);
+          console.log(localStorage.getItem('token'))
         }),
         map(() => void 0)
       );
   }
 
   getToken(): string | null {
-    return this.token || sessionStorage.getItem(this.tokenKey);
+      console.log(localStorage.getItem('token'))
+    return localStorage.getItem('token');
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    return this.getToken()!==null && this.getToken()!==undefined;
   }
 
   logout() {
     this.token = null;
-    sessionStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('token')
+      console.log(localStorage.getItem('token'))
   }
 }
