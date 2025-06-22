@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth.interceptor';
 import { routes } from './app.routes';
+import { LOCALE_ID } from '@angular/core';
 
 export const appConfig:ApplicationConfig = {
   providers: [
@@ -13,5 +14,6 @@ export const appConfig:ApplicationConfig = {
       withInterceptors([AuthInterceptor])
     ),
      provideNativeDateAdapter(),
+      { provide: LOCALE_ID, useValue: 'he' },
     ]
 };
