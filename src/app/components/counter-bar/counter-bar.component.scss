@@ -1,0 +1,28 @@
+.counter-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1.2em;
+  background: #f4f9ff;
+  border-radius: 1.6em;
+  padding: 0.8em 1.5em;
+  box-shadow: 0 2px 8px #c0e1ff22;
+  justify-content: space-between;
+}
+
+
+
+.counter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.1em;
+
+  mat-icon {
+    font-size: 1.35em;
+    vertical-align: middle;
+  }
+  &.paid mat-icon { color: #43a047; }
+  &.pending mat-icon { color: #ff9800; }
+  &.overdue mat-icon { color: #f44336; }
+  strong { font-size: 1.16em; margin-right: 0.3em; }
+}

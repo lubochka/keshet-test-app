@@ -79,3 +79,10 @@
   transition: width 0.2s;
   // If row selected, set width: 50%; otherwise, width: 100%
 }
+
+.status-icon {
+  font-size: 1.35em;
+  vertical-align: middle;
+  &.paid { color: #43a047; }
+  &.pending { color: #ff9800; }
+}

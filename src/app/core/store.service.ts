@@ -25,6 +25,7 @@ export class StoreService {
         next: (invoiceListResponce) => this.invoicesSubject.next(invoiceListResponce.items),
         error: () => this.invoicesSubject.next([]), // fallback on error
       });
+      this.loadInvoiceStatusCounts(this.currentFilter);
   }
 
   /** Get and store a specific invoice by ID */
@@ -40,4 +41,15 @@ export class StoreService {
   clearSelectedInvoice(): void {
     this.selectedInvoiceSubject.next(null);
   }
+
+  private statusCountsSubject = new BehaviorSubject<{ status: string, count: number }[]>([]);
+statusCounts$ = this.statusCountsSubject.asObservable();
+
+loadInvoiceStatusCounts(filter?: InvoiceQueryDto): void {
+  this.api.getInvoiceCountsByStatus(filter || {})
+    .subscribe({
+      next: (counts) => this.statusCountsSubject.next(counts),
+      error: () => this.statusCountsSubject.next([]),
+    });
+}
 }

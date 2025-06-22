@@ -5,6 +5,7 @@
 <table class="invoice-table">
   <thead>
     <tr>
+      <th></th>
       <th>מספר</th>
       <th>כותרת</th>
       <th>לקוח</th>
@@ -20,6 +21,11 @@
       *ngFor="let inv of invoices" 
       (click)="rowSelect.emit(inv.id)" 
       [class.selected]="inv.id === selectedId?.id">
+      <td>
+       <mat-icon *ngIf="inv.status === 'paid'" style="color: #4CAF50;">check_circle</mat-icon>
+  <mat-icon *ngIf="inv.status === 'pending'" style="color: #FFC107;">radio_button_unchecked</mat-icon>
+  <mat-icon *ngIf="inv.status === 'overdue'" style="color: #F44336;">fiber_manual_record</mat-icon>
+      </td>
       <td>{{ inv.id }}</td>
       <td>{{ inv.title }}</td>
       <td>{{ inv.client }}</td>
@@ -27,11 +33,7 @@
       <td>{{ inv.currency}}</td>
       <td>{{ inv.updatedAt}}</td>
       <td>{{ inv.invoiceNumber}}</td>
-      <td>
-        <!-- You can use an icon, color, or text for status -->
-        {{ inv.status }}
-        <!-- or <mat-icon *ngIf="inv.status === 'paid'">check_circle</mat-icon> -->
-      </td>
+      
       <td>
         <span class="material-icons" *ngIf="inv.id !== selectedId?.id">arrow_left</span>
         <span class="material-icons" *ngIf="inv.id === selectedId?.id" style="color: #1976d2;">arrow_left</span>

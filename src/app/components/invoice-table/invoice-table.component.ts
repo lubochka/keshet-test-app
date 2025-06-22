@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Invoice } from '../../core/models/invoice'; // adjust path as needed
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-invoice-table',
    standalone: true, 
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './invoice-table.component.html',
   styleUrl: './invoice-table.component.scss'
 })

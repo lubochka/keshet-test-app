@@ -1,1 +1,17 @@
-<p>counter-bar works!</p>
+<div class="counter-bar">
+  <div class="counter-item paid">
+    <mat-icon>check_circle</mat-icon>
+    <span>שולם</span>
+    <strong>{{ paidCount }}</strong>
+  </div>
+  <div class="counter-item pending">
+    <mat-icon>radio_button_unchecked</mat-icon>
+    <span>ממתין</span>
+    <strong>{{ pendingCount }}</strong>
+  </div>
+  <div class="counter-item overdue">
+    <mat-icon>fiber_manual_record</mat-icon>
+    <span>פג תוקף</span>
+    <strong>{{ overdueCount }}</strong>
+  </div>
+</div>

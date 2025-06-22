@@ -36,4 +36,14 @@ export class ApiService {
   getInvoicePdf(id: string): Observable<Blob> {
     return this.http.get(`${this.baseUrl}/${id}/pdf`, { responseType: 'blob' });
   }
+
+  getInvoiceCountsByStatus(filter: InvoiceQueryDto = {}): Observable<{ status: string, count: number }[]> {
+  let params = new HttpParams();
+  Object.entries(filter).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      params = params.set(key, String(value));
+    }
+  });
+  return this.http.get<{ status: string, count: number }[]>(`${this.baseUrl}/grouped/by-status`, { params });
+}
 }

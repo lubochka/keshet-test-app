@@ -2,10 +2,12 @@
       <app-header></app-header>
       
       <div  dir="rtl" >
-        <div >
-          <app-counter-bar></app-counter-bar>
-          <app-filter-bar (filterChange)="onFilterChange($event)"></app-filter-bar>
-        </div>
+        <div class="top-filters-row">
+  <app-filter-bar class="top-bar-item" (filterChange)="onFilterChange($event)"></app-filter-bar>
+          <app-counter-bar class="top-bar-item"></app-counter-bar>
+  
+</div>
+      
         <div class="main-content-2col">
           <div class="pdf-side" *ngIf="selectedInvoice">
             <app-pdf-viewer  [pdfId]="selectedInvoice.id"
