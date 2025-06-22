@@ -1,0 +1,24 @@
+ <div style="display: flex; gap: 12px; align-items: flex-end; direction: rtl;">
+    <mat-form-field>
+      <mat-label>מתאריך</mat-label>
+      <input matInput [matDatepicker]="picker1" [(ngModel)]="internalFilter.dateFrom">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>עד תאריך</mat-label>
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="internalFilter.dateTo">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>חיפוש</mat-label>
+      <input matInput [(ngModel)]="internalFilter.title" (ngModelChange)="emitFilter()"
+             (keyup.enter)="emitFilter()" placeholder="הזן מונח לחיפוש">
+      <button mat-icon-button matSuffix (click)="emitFilter()" type="button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
