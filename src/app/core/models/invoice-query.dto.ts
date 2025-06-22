@@ -1,4 +1,5 @@
 export interface InvoiceQueryDto {
+  id?:string;
   client?: string;
   title?: string;
   dateFrom?: Date |null; // use ISO string: 'YYYY-MM-DD'

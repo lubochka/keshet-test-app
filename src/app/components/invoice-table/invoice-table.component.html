@@ -1,10 +1,13 @@
 <table class="invoice-table">
   <thead>
     <tr>
-      <th>תיאור</th>
-      <th>ספק</th>
+      <th>מספר</th>
+      <th>כותרת</th>
+      <th>לקוח</th>
       <th>עלות</th>
-      <th>סטטוס</th>
+      <th>מטבע</th>
+      <th>תאריך עדכון</th> 
+      <th>מספר חשבונית</th>
       <th></th> <!-- For the selection arrow -->
     </tr>
   </thead>
@@ -13,9 +16,13 @@
       *ngFor="let inv of invoices" 
       (click)="rowSelect.emit(inv.id)" 
       [class.selected]="inv.id === selectedId?.id">
-      <td>{{ inv.description }}</td>
-      <td>{{ inv.supplier }}</td>
-      <td>{{ inv.cost | currency:'ILS' }}</td>
+      <td>{{ inv.id }}</td>
+      <td>{{ inv.title }}</td>
+      <td>{{ inv.client }}</td>
+      <td>{{ inv.amount}}</td>
+      <td>{{ inv.currency}}</td>
+      <td>{{ inv.updatedAt}}</td>
+      <td>{{ inv.invoiceNumber}}</td>
       <td>
         <!-- You can use an icon, color, or text for status -->
         {{ inv.status }}

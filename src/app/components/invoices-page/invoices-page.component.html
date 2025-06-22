@@ -14,8 +14,8 @@
             </app-invoice-table>
           </div>
           <div *ngIf="selectedInvoice" style="flex: 1; margin-right: 20px;">
-            <app-pdf-viewer  [pdfSrc]="selectedInvoice.pdfUrl"
-  [title]="selectedInvoice.description"></app-pdf-viewer>
+            <app-pdf-viewer  [pdfId]="selectedInvoice.id"
+  [title]="selectedInvoice.title"></app-pdf-viewer>
           </div>
         </div>
       </div>

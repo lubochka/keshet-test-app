@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ApiService } from './api.service';
-import { Invoice } from './models/invoice';
+import { Invoice,InvoiceListResponse } from './models/invoice';
 import { InvoiceQueryDto } from './models/invoice-query.dto';
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +22,7 @@ export class StoreService {
     this.currentFilter = filter || this.currentFilter || {};
     this.api.getInvoices(this.currentFilter)
       .subscribe({
-        next: (invoices) => this.invoicesSubject.next(invoices),
+        next: (invoiceListResponce) => this.invoicesSubject.next(invoiceListResponce.items),
         error: () => this.invoicesSubject.next([]), // fallback on error
       });
   }
@@ -31,7 +31,7 @@ export class StoreService {
   selectInvoice(id: string): void {
     this.api.getInvoiceById(id)
       .subscribe({
-        next: (invoice) => this.selectedInvoiceSubject.next(invoice),
+        next: (invoiceListResponce) => this.selectedInvoiceSubject.next(invoiceListResponce.total>0?invoiceListResponce.items[0]:null),
         error: () => this.selectedInvoiceSubject.next(null),
       });
   }
