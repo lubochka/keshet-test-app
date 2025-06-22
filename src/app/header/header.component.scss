@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background: #0170d7; // Blue
+  color: #fff;
+  height: 60px;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+  .header-logo img {
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  .header-spacer {
+    flex: 1 1 auto;
+  }
+
+  .header-user {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+
+    button[mat-icon-button] {
+      color: #fff;
+    }
+  }
+}

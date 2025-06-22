@@ -10,6 +10,7 @@ import { Invoice } from '../core/models/invoice';
 import { InvoiceQueryDto } from '../core/models/invoice-query.dto';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-invoices-page',
    standalone: true,

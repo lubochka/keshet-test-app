@@ -1,1 +1,21 @@
-<p>pdf-viewer works!</p>
+<div *ngIf="pdfSrc; else noPdf">
+  <h3>{{ title }}</h3>
+  <pdf-viewer
+    [src]="pdfSrc"
+    [render-text]="true"
+    [original-size]="false"
+    style="display: block; width: 100%; min-height: 600px"
+    [(page)]="page"
+    [autoresize]="true"
+    (after-load-complete)="onPdfLoad()"
+  ></pdf-viewer>
+  <!-- Optional: simple paging controls -->
+  <div style="text-align: center; margin: 8px 0;">
+    <button (click)="page = page - 1" [disabled]="page <= 1">⬅️</button>
+    עמוד {{ page }}
+    <button (click)="page = page + 1">➡️</button>
+  </div>
+</div>
+<ng-template #noPdf>
+  <div style="color: #888; padding: 2em;">אין קובץ PDF להצגה</div>
+</ng-template>

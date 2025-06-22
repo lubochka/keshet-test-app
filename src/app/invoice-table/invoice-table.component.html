@@ -1,1 +1,30 @@
-<p>invoice-table works!</p>
+<table class="invoice-table">
+  <thead>
+    <tr>
+      <th>תיאור</th>
+      <th>ספק</th>
+      <th>עלות</th>
+      <th>סטטוס</th>
+      <th></th> <!-- For the selection arrow -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr 
+      *ngFor="let inv of invoices" 
+      (click)="rowSelect.emit(inv.id)" 
+      [class.selected]="inv.id === selectedId?.id">
+      <td>{{ inv.description }}</td>
+      <td>{{ inv.supplier }}</td>
+      <td>{{ inv.cost | currency:'ILS' }}</td>
+      <td>
+        <!-- You can use an icon, color, or text for status -->
+        {{ inv.status }}
+        <!-- or <mat-icon *ngIf="inv.status === 'paid'">check_circle</mat-icon> -->
+      </td>
+      <td>
+        <span class="material-icons" *ngIf="inv.id !== selectedId?.id">arrow_left</span>
+        <span class="material-icons" *ngIf="inv.id === selectedId?.id" style="color: #1976d2;">arrow_left</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

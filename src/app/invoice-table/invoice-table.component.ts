@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Invoice } from '../core/models/invoice'; // adjust path as needed
 
 @Component({
   selector: 'app-invoice-table',
-  imports: [],
+   standalone: true, 
+  imports: [CommonModule],
   templateUrl: './invoice-table.component.html',
   styleUrl: './invoice-table.component.scss'
 })
 export class InvoiceTableComponent {
-
+ @Input() invoices: Invoice[] = [];
+  @Input() selectedId: Invoice | null = null;
+  @Output() rowSelect = new EventEmitter<string>();
 }

@@ -1,1 +1,20 @@
-<p>header works!</p>
+ <header class="header">
+      <!-- Logo on right -->
+      <div class="header-logo">
+        <img src="assets/keshet_logo.png" alt="Logo" />
+      </div>
+      <!-- Spacer -->
+      <div class="header-spacer"></div>
+      <!-- User Icon/Menu on left (shown when logged in) -->
+      <div *ngIf="isLoggedIn" class="header-user">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+            התנתק
+          </button>
+        </mat-menu>
+      </div>
+    </header>
