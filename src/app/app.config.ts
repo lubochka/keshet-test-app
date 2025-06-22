@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth.interceptor';
@@ -11,5 +12,6 @@ export const appConfig:ApplicationConfig = {
      provideHttpClient(
       withInterceptors([AuthInterceptor])
     ),
+     provideNativeDateAdapter(),
     ]
 };

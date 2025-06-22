@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { CounterBarComponent } from '../counter-bar/counter-bar.component';
-import { FilterBarComponent, InvoiceFilter } from '../filter-bar/filter-bar.component';
+import { FilterBarComponent } from '../filter-bar/filter-bar.component';
 import { InvoiceTableComponent } from '../invoice-table/invoice-table.component';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 import { StoreService } from '../core/store.service'; // Make sure this exists!
@@ -46,7 +46,7 @@ export class InvoicesPageComponent {
     );
   }
 
-  onFilterChange(filter: InvoiceFilter) {
+  onFilterChange(filter: InvoiceQueryDto) {
     this.store.loadInvoices(filter);
     // Optionally clear selected invoice on new filter:
     this.store.clearSelectedInvoice();

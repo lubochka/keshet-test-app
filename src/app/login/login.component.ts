@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+    standalone: true,
+  imports: [FormsModule,CommonModule],
+  
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  standalone: true
+  
 })
 export class LoginComponent {
 username = '';
