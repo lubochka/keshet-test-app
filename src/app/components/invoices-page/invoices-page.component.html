@@ -1,22 +1,24 @@
- <div dir="rtl" style="height: 100vh; display: flex; flex-direction: column;">
+ 
       <app-header></app-header>
-      <div style="flex: 1; display: flex; flex-direction: row-reverse; height: 100%;">
-        <div style="width: 260px; margin-right: 16px; display: flex; flex-direction: column; gap: 20px;">
+      
+      <div  dir="rtl" >
+        <div >
           <app-counter-bar></app-counter-bar>
           <app-filter-bar (filterChange)="onFilterChange($event)"></app-filter-bar>
         </div>
-        <div style="flex: 1; display: flex; gap: 16px;">
-          <div [style.flex]="selectedInvoice ? '2' : '1'">
+        <div class="main-content-2col">
+          <div class="pdf-side" *ngIf="selectedInvoice">
+            <app-pdf-viewer  [pdfId]="selectedInvoice.id"
+  [title]="selectedInvoice.title"></app-pdf-viewer>
+          </div>
+          <div class="table-side" [style.flex]="selectedInvoice ? '2' : '1'">
             <app-invoice-table
               [invoices]="invoices"
               [selectedId]="selectedInvoice"
               (rowSelect)="onRowSelect($event)">
             </app-invoice-table>
           </div>
-          <div *ngIf="selectedInvoice" style="flex: 1; margin-right: 20px;">
-            <app-pdf-viewer  [pdfId]="selectedInvoice.id"
-  [title]="selectedInvoice.title"></app-pdf-viewer>
-          </div>
+          
         </div>
       </div>
-    </div>
+    

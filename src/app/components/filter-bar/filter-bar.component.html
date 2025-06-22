@@ -1,24 +1,48 @@
- <div style="display: flex; gap: 12px; align-items: flex-end; direction: rtl;">
+<div class="filter-bar">
+  <!-- Date Range Field -->
+ <div class="filter-field date-range" (click)="toggleDateRange($event)">
+    <mat-icon>calendar_today</mat-icon>
+    <span class="date-label">
+      {{ internalFilter.dateFrom ? (internalFilter.dateFrom | date:'dd/MM/yyyy') : 'מתאריך' }}
+      -
+      {{ internalFilter.dateTo ? (internalFilter.dateTo | date:'dd/MM/yyyy') : 'עד תאריך' }}
+    </span>
+  </div>
+
+  <!-- Date Range Popup (hidden by default) -->
+  <div 
+    *ngIf="showDatePicker" 
+    class="date-range-popup"
+    (click)="$event.stopPropagation()"
+  >
     <mat-form-field>
       <mat-label>מתאריך</mat-label>
       <input matInput [matDatepicker]="picker1" [(ngModel)]="internalFilter.dateFrom">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>עד תאריך</mat-label>
       <input matInput [matDatepicker]="picker2" [(ngModel)]="internalFilter.dateTo">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>חיפוש</mat-label>
-      <input matInput [(ngModel)]="internalFilter.title" (ngModelChange)="emitFilter()"
-             (keyup.enter)="emitFilter()" placeholder="הזן מונח לחיפוש">
-      <button mat-icon-button matSuffix (click)="emitFilter()" type="button">
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
+    <button mat-button color="primary" (click)="closeDateRange()">בחר</button>
   </div>
+
+
+  <!-- Search Field -->
+  <div class="filter-field search-field">
+    <mat-icon>search</mat-icon>
+    <input
+      [(ngModel)]="internalFilter.title"
+      placeholder="חיפוש לפי כותרת, לקוח..."
+      (keyup.enter)="emitFilter()"
+    />
+  </div>
+
+  <!-- Filter Button -->
+  <button class="filter-btn" (click)="emitFilter()" title="סנן">
+    <mat-icon>filter_alt</mat-icon>
+  </button>
+</div>

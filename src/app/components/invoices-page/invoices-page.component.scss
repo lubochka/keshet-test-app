@@ -1,0 +1,52 @@
+.main-content-2col {
+  display: flex;
+  flex-direction: row-reverse; // RTL support, table on right by default
+  height: 100%;
+  min-height: 0;
+
+  .table-side, .pdf-side {
+    transition: width 0.22s cubic-bezier(.6,.01,.64,1.01);
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .table-side {
+    flex: 1 1 0;
+    min-width: 300px;
+    max-width: 100vw;
+  }
+  .pdf-side {
+    flex: 1 1 0;
+    min-width: 340px;
+    max-width: 100vw;
+    background: #f7fafe;
+    border-radius: 2em;
+    margin-left: 1.2em;
+    box-shadow: 0 2px 16px #22335522;
+    padding: 1.5em 1em;
+    overflow: auto;
+  }
+
+  // When PDF is not shown, table takes full width
+  .table-side:only-child {
+    flex: 1 1 100%;
+    max-width: 100vw;
+  }
+}
+
+// Responsive
+@media (max-width: 900px) {
+  .main-content-2col {
+    flex-direction: column;
+    .table-side, .pdf-side {
+      min-width: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0.7em 0.2em;
+    }
+    .pdf-side {
+      border-radius: 1.1em;
+    }
+  }
+}

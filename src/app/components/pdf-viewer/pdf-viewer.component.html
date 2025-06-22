@@ -1,5 +1,4 @@
-<div *ngIf="pdfSrc; else noPdf">
-  <h3>{{ title }}</h3>
+<div *ngIf="pdfSrc; else noPdf" >
   <pdf-viewer
     [src]="pdfSrc"
     [render-text]="true"

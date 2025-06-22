@@ -1,0 +1,124 @@
+.filter-bar {
+    position: relative;
+  z-index: 1;
+  top: 1em;
+  right: 3vw;
+  z-index: 20;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1.5em;
+  width: 48vw;
+  min-width: 310px;
+  max-width: 750px;
+  background: #fff;
+  border-radius: 1.4em;
+  box-shadow: 0 6px 30px 0 #2c54a022;
+  align-items: center;
+  padding: 0.6em 1.3em;
+  transform: translateY(-1em); /* float over header */
+  font-family: inherit;
+}
+
+.filter-field {
+  background: #f8fafc;
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.3em 1em;
+  min-width: 120px;
+  box-shadow: 0 1px 4px #ccd8ec22;
+  font-size: 1.02em;
+  position: relative;
+  cursor: pointer;
+
+  &.search-field {
+    flex: 1 1 250px;
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1em;
+      margin-right: 0.5em;
+      width: 300px;
+      text-align: right;
+    }
+    span {
+      color: #2b61a6;
+      font-weight: 500;
+    }
+  }
+
+  .mat-icon {
+    font-size: 1.2em;
+    color: #1a64e5;
+  }
+}
+
+.date-range {
+  min-width: 170px;
+  max-width: 230px;
+}
+
+.date-range-popup {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  display: flex;
+  gap: 0.8em;
+  background: #fff;
+  box-shadow: 0 2px 18px 0 #2b61a666;
+  border-radius: 1.1em;
+  padding: 1.1em 1.4em;
+  z-index: 99;
+  align-items: flex-end;
+
+  mat-form-field {
+    width: 130px;
+  }
+
+  button {
+    margin-right: 0.7em;
+    background: linear-gradient(93deg, #1a64e5, #3386f7);
+    color: #fff;
+    border-radius: 2em;
+    padding: 0.5em 1.3em;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 2px 12px #3b7bed12;
+    cursor: pointer;
+  }
+}
+
+.filter-btn {
+  background: linear-gradient(93deg, #1a64e5, #3386f7);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  font-size: 1.3em;
+  box-shadow: 0 2px 12px #3b7bed22;
+  transition: background 0.18s;
+  margin-right: 0.3em;
+
+  &:hover, &:focus {
+    background: linear-gradient(93deg, #3386f7, #1a64e5);
+  }
+}
+
+@media (max-width: 900px) {
+  .filter-bar {
+    width: 99vw;
+    right: 0;
+    padding: 0.7em 0.2em;
+    border-radius: 0;
+    min-width: 0;
+    gap: 0.8em;
+      position: relative;
+  z-index: 1;
+  }
+}

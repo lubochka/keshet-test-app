@@ -53,7 +53,6 @@ export class InvoicesPageComponent {
   }
 
   onRowSelect(invoiceId: string) {
-    console.log(invoiceId, 'invoice id change')
     this.store.selectInvoice(invoiceId);
   }
 

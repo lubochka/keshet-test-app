@@ -14,16 +14,13 @@ export class AuthService {
       .pipe(
         tap(res => {
           this.token = res.access_token;
-          console.log(res.access_token)
           localStorage.setItem('token', res.access_token);
-          console.log(localStorage.getItem('token'))
         }),
         map(() => void 0)
       );
   }
 
   getToken(): string | null {
-      console.log(localStorage.getItem('token'))
     return localStorage.getItem('token');
   }
 
@@ -34,6 +31,5 @@ export class AuthService {
   logout() {
     this.token = null;
     localStorage.removeItem('token')
-      console.log(localStorage.getItem('token'))
   }
 }

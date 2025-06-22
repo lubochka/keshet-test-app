@@ -17,7 +17,6 @@ export class PdfViewerComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     // Only set pdfSrc if it is not provided by parent, and pdfId changes
-    console.log('changes',changes, changes['pdfId']['currentValue']);
     if (changes['pdfId'] && changes['pdfId']['currentValue']) {
       this.pdfSrc = `http://localhost:3001/api/invoices/${changes['pdfId']['currentValue']}/pdf`;
     }

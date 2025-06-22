@@ -1,6 +1,81 @@
-.invoice-table,
-.invoice-table th,
-.invoice-table td {
+.invoice-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
   direction: rtl;
-  text-align: right;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px #154fa715;
+  margin: 0 auto;
+  font-family: 'Rubik', 'Assistant', Arial, sans-serif;
+
+  thead {
+    background: linear-gradient(90deg, #e8f1ff 0%, #e5ecff 100%);
+    th {
+      padding: 14px 10px;
+      font-size: 1.06em;
+      font-weight: 700;
+      color: #3263a8;
+      border-bottom: 2px solid #dde6f6;
+      text-align: right;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background 0.16s;
+      cursor: pointer;
+
+      &:nth-child(even) {
+        background: #f4f8fd;
+      }
+
+      &:hover {
+        background: #e7f1ff;
+      }
+
+      &.selected {
+        background: linear-gradient(90deg, #e3eefd 0%, #b4d6fa 100%);
+        font-weight: 600;
+        border-right: 5px solid #2b70d7;
+        box-shadow: 0 2px 12px #1a3b7d12;
+      }
+    }
+
+    td {
+      padding: 13px 10px;
+      font-size: 1em;
+      border-bottom: 1px solid #edf2fa;
+      text-align: right;
+      vertical-align: middle;
+    }
+  }
+
+  .material-icons {
+    vertical-align: middle;
+    font-size: 22px;
+    color: #bbb;
+    transition: color 0.18s;
+    &.active {
+      color: #1976d2;
+    }
+  }
+}
+
+// Responsive: when inside a flex split with pdf viewer
+@media (max-width: 900px) {
+  .invoice-table {
+    font-size: 0.97em;
+    thead th, tbody td {
+      padding: 10px 5px;
+    }
+  }
+}
+
+// Optional: tweak container for table split logic (use in your main page SCSS)
+.table-container {
+  width: 100%;
+  transition: width 0.2s;
+  // If row selected, set width: 50%; otherwise, width: 100%
 }
