@@ -5,7 +5,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {InvoiceQueryDto} from '../core/models/invoice-query.dto'
+import {InvoiceQueryDto} from '../../core/models/invoice-query.dto'
 
 @Component({
   selector: 'app-filter-bar',

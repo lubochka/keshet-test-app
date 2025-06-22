@@ -5,9 +5,9 @@ import { CounterBarComponent } from '../counter-bar/counter-bar.component';
 import { FilterBarComponent } from '../filter-bar/filter-bar.component';
 import { InvoiceTableComponent } from '../invoice-table/invoice-table.component';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
-import { StoreService } from '../core/store.service'; // Make sure this exists!
-import { Invoice } from '../core/models/invoice';
-import { InvoiceQueryDto } from '../core/models/invoice-query.dto';
+import { StoreService } from '../../core/store.service'; // Make sure this exists!
+import { Invoice } from '../../core/models/invoice';
+import { InvoiceQueryDto } from '../../core/models/invoice-query.dto';
 import { Subscription } from 'rxjs';
 
 

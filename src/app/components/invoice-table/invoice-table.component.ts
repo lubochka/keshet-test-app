@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Invoice } from '../core/models/invoice'; // adjust path as needed
+import { Invoice } from '../../core/models/invoice'; // adjust path as needed
 
 @Component({
   selector: 'app-invoice-table',
